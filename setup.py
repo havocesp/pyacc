@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from pathlib import Path
+
 from setuptools import setup, find_packages
 
 import pyacc as pkg
@@ -11,10 +12,7 @@ dependency_links = list()
 
 if requirements.exists:
     requirements = requirements.read_text()
-    requirements = requirements.split('\n')
-    for idx, r in enumerate(requirements):
-        if len(r) > 5 and 'git+' in r.strip()[:4]:
-            dependency_links.append(r.pop(idx))
+    requirements = [r.strip() for r in requirements.split('\n')]
 else:
     requirements = list()
 
@@ -32,7 +30,7 @@ setup(
     packages=find_packages(exclude=exclude),
     entry_points={
         'console_scripts': [
-            'pyacc = pyacc.main:main.start'
+            'pyacc = pyacc.main:run'
         ]
     },
     url=pkg.__site__,

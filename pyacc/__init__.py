@@ -2,15 +2,15 @@
 """
  PyACC
 """
-import sys
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).absolute().parent  # type: Path
+#
+# sys.path.append(str(ROOT_DIR))
+# sys.path.append(str(ROOT_DIR.parent))
 
-sys.path.append(str(ROOT_DIR))
-
-README_FILE = ROOT_DIR.joinpath('README.md')
-REQUIREMENTS_FILE = ROOT_DIR.joinpath('requirements.txt')
+README_FILE = ROOT_DIR.parent.joinpath('README.md')
+REQUIREMENTS_FILE = ROOT_DIR.parent.joinpath('requirements.txt')
 REQUIREMENTS = list()
 
 if REQUIREMENTS_FILE.is_file():
@@ -28,7 +28,7 @@ else:
 
 __project__ = __package__.title()
 __author__ = 'Daniel J. Umpierrez'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __license__ = 'UNLICENSE'
 __site__ = 'https://github.com/havocesp/{}'.format(__package__)
 __email__ = 'umpierrez@pm.me'
