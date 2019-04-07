@@ -25,9 +25,15 @@ $ 30.43 USD
 
 ## Changelog
 
+### 0.1.2
+
+- Allowed crypto-currencies as "dest" currency. 
+
 ### 0.1.1
+
 - Replaced "begin" dependence by "argparser"
 - Many bug fixes
 
 ### 0.1.0
+
 - Initial version
