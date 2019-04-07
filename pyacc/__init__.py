@@ -28,7 +28,7 @@ else:
 
 __project__ = __package__.title()
 __author__ = 'Daniel J. Umpierrez'
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __license__ = 'UNLICENSE'
 __site__ = 'https://github.com/havocesp/{}'.format(__package__)
 __email__ = 'umpierrez@pm.me'
