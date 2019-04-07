@@ -12,13 +12,15 @@ import time
 from pyacc.utils import Fiat, get_price
 
 ERROR_NULL_RESPONSE = ' - [ERROR] Null response, 5 seconds to retry ... '
+ERROR_SAME_CURRENCIES = ' - [ERROR] "From" currency ({}) and "To" currency ({}) can not be the same.'
 MSG_RETRY_TIME = ' - Waiting to retry ... '
 
 
-def main(args):
-    to = args.to.upper().strip(' T')
-    to = Fiat(to) if str(to) in Fiat.LIST else Fiat(Fiat.USD)
 
+def main(args):
+    assert str(args.to.upper()) != str(args.cfrom.upper()), ERROR_SAME_CURRENCIES
+    to = args.to.upper().strip(' T')
+    to = Fiat(to) if str(to) in Fiat.LIST else to
     retries = 5
     wait_secs = 5
     price = None
