@@ -8,6 +8,7 @@
 from abc import ABCMeta
 
 import requests as req
+from security import safe_requests
 
 _PRICE_URL = 'https://min-api.cryptocompare.com/data/price'
 _PRICE_MULTI_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
@@ -16,7 +17,7 @@ _PRICE_MULTI_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
 def _query(url, params=None):
     result = None
     try:
-        resp = req.get(url, params=params or dict())
+        resp = safe_requests.get(url, params=params or dict())
         if resp and resp.ok:
             result = resp.json()
         elif resp:
