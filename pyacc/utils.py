@@ -16,7 +16,7 @@ _PRICE_MULTI_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
 def _query(url, params=None):
     result = None
     try:
-        resp = req.get(url, params=params or dict())
+        resp = req.get(url, params=params or dict(), timeout=60)
         if resp and resp.ok:
             result = resp.json()
         elif resp:
